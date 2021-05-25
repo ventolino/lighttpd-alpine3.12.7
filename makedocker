@@ -1,0 +1,2 @@
+#docker rmi ventolino/httpd-debian
+docker build -t "ventolino/lighttpd-alpine3.12.7" .

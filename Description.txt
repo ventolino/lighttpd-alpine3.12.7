@@ -1,0 +1,20 @@
+Alpine 3.12.7 + lighttpd (compact size)
+
+
+
+Image runs at startup "/root/start.sh" who starts httpd with "/root/lighttpd.conf" configuration file, where:
+- "/var/www" is the site
+- "/var/log/lighttpd" have the access log + error log
+
+
+Example to run in docker:
+
+Create in your home directory, directory "www" and diretory "log" and give them 777 permisions and put some "index.html" in "www"
+
+Run:
+
+    docker run -d --name test -p 10080:80 -v $(pwd)/www:/var/www -v $(pwd)/log:/var/log/lighttpd ventolino/lighttpd-alpine3.12.7
+
+In some browser, open the page:
+
+    http://xxxx:10080   (xxxx = IP or DNS of the machine who runs dockerd)

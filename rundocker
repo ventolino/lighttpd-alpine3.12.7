@@ -1,0 +1,16 @@
+#! /bin/sh
+
+#stop a la vez borra el container (por el --rm del docke run)
+docker stop test
+docker rm test
+
+
+#Hay que hacer algo para esperar a que el container haya sido realmente borrado
+#Lo he probado con docker rm test, pero continua igual
+#pdte hacer algo con docker ps -qf name=test
+dir=$(pwd)
+
+#elimnado rm
+docker run -d --name test -p 10082:80 \
+	-v $dir/www:/var/www -v $dir/log:/var/log/lighttpd \
+	ventolino/lighttpd-alpine3.12.7	
