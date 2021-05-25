@@ -1,7 +1,6 @@
 Alpine 3.12.7 + lighttpd (compact size)
 
 
-
 Image runs at startup "/root/start.sh" who starts httpd with "/root/lighttpd.conf" configuration file, where:
 - "/var/www" is the site
 - "/var/log/lighttpd" have the access log + error log
